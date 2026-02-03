@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import pool from "../db";
 
-export const getUsers = async (req: Request, res: Response) => {
+export const getNotes = async (req: Request, res: Response) => {
   try {
     const { rows } = await pool.query("SELECT * FROM users");
     res.json(rows);
