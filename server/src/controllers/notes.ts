@@ -38,6 +38,6 @@ export const titleRenameNote = async (req: Request, res: Response) => {
         }
         res.status(200).json(rows[0])
     } catch (error) {
-        res.status(500).json({ error: "title rename failed ";})
+        res.status(500).json({ error: "title rename failed "})
     }
 }
