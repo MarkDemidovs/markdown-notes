@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { getNotes, createNote, titleRenameNote } from "../controllers/notes";
+import { getNotes, createNote, titleRenameNote, contentRenameNote } from "../controllers/notes";
 
 const router = Router();
 
 router.get("/", getNotes);
 router.post("/", createNote);
-router.patch("/:id", titleRenameNote)
+router.patch("/:id/title", titleRenameNote)
 
 export default router;
