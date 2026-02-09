@@ -1,4 +1,4 @@
-import type { Note } from "../types/note"
+import type { NoteType } from "../types/note"
 
 async function apiFetch<T>(
   url: string,
@@ -21,6 +21,6 @@ async function apiFetch<T>(
 }
 
 
-export function getNotes(): Promise<Note[]> {
-  return apiFetch<Note[]>("/notes");
+export function getNotes(): Promise<NoteType[]> {
+  return apiFetch<NoteType[]>("/notes");
 }

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import type { Note } from "./types/note";
+import type { NoteType } from "./types/note";
 import { getNotes } from "./api/notes";
+import Note from "./Note";
 
 export default function NotesPage() {
 
-  const [notes, setNotes] = useState<Note[]>([]);
+  const [notes, setNotes] = useState<NoteType[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,13 +26,13 @@ export default function NotesPage() {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div>
-      {notes.map(note => (
-        <div key={note.id}>
-          <h3>{note.title}</h3>
-          <p>{note.content}</p>
-        </div>
-      ))}
+    <div className="p-8">
+      <h1 className="text-3xl font-bold mb-6">Notes</h1>
+      <div className="grid gap-4">
+        {notes.map(note => (
+          <Note key={note.id} id={note.id} title={note.title} content={note.content} />
+        ))}
+      </div>
     </div>
   );
 
