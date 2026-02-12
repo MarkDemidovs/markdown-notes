@@ -38,7 +38,7 @@ export default function NotesPage() {
     <div className="p-8">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-3xl font-bold mb-6">Notes</h1>
-        <button onClick={() => createNoteFunction("New Note", "This is a new note.")} className="rounded shadow border border-gray-300 p-2 w-8 h-8 flex items-center justify-center">+</button>
+        <button onClick={() => createNoteFunction("Click to edit me!", "This is a new note.")} className="rounded shadow border border-gray-300 p-2 w-8 h-8 flex items-center justify-center">+</button>
       </div>
       <div className="gap-6 flex">
         {notes.map(note => (
