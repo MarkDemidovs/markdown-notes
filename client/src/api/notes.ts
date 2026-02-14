@@ -31,3 +31,17 @@ export function createNote(title: string, content: string): Promise<NoteType> {
     body: JSON.stringify({ title, content })
   });
 }
+
+export function renameTitle(id: string, title: string): Promise<NoteType> {
+  return apiFetch<NoteType>(`/notes/${id}/title`, {
+    method: "PATCH",
+    body: JSON.stringify({ title })
+  });
+}
+
+export function renameContent(id: string, content: string): Promise<NoteType> {
+  return apiFetch<NoteType>(`/notes/${id}/content`, {
+    method: "PATCH",
+    body: JSON.stringify({ content })
+  });
+}
