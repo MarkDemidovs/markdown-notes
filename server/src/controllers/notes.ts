@@ -27,13 +27,13 @@ export const createNote = async (req: Request, res: Response) => {
 }
 
 export const titleRenameNote = async (req: Request, res: Response) => {
-    const { newTitle } = req.body;
+    const { title } = req.body;
     const { id } = req.params;
 
     try {
         const { rows } = await pool.query(
             "UPDATE notes SET title = $1 WHERE id = $2 RETURNING *",
-            [newTitle, id]
+            [title, id]
         );
 
         if (rows.length === 0) {
@@ -46,13 +46,13 @@ export const titleRenameNote = async (req: Request, res: Response) => {
 }
 
 export const contentRenameNote = async (req: Request, res: Response) => {
-    const { newContent } = req.body;
+    const { content } = req.body;
     const { id } = req.params;
 
     try {
         const { rows } = await pool.query(
             "UPDATE notes SET content = $1 WHERE id = $2 RETURNING *",
-            [newContent, id]
+            [content, id]
         );
 
         if (rows.length === 0) {

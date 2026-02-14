@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { NoteType } from "./types/note";
-import { getNotes, createNote } from "./api/notes";
+import { getNotes, createNote, renameContent, renameTitle } from "./api/notes";
 import Note from "./Note";
 
 export default function NotesPage() {
@@ -32,6 +32,16 @@ export default function NotesPage() {
     }
   };
 
+  async function renameFunction(id: number, newTitle: string, newContent: string) {
+    try {
+      await renameTitle(id.toString(), newTitle);
+      const data = await renameContent(id.toString(), newContent);
+      setNotes(prev => prev.map(n => n.id === id ? data : n));
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   if (loading) return <div>Loading...</div>;
 
   return (
@@ -42,7 +52,7 @@ export default function NotesPage() {
       </div>
       <div className="gap-6 flex flex-wrap">
         {notes.map(note => (
-          <Note key={note.id} title={note.title} content={note.content} />
+          <Note key={note.id} title={note.title} content={note.content} onSave={(newTitle, newContent) => renameFunction(note.id, newTitle, newContent)} />
         ))}
       </div>
 
