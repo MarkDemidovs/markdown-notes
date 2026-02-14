@@ -7,6 +7,11 @@ interface NoteProps {
 
 export default function Note({ title, content }: NoteProps) {
     const [isEditing, setIsEditing] = useState(false);
+    
+    async function saveChanges() {
+        console.log("You saved your changes!");
+        setIsEditing(false);
+    }
 
     return (
         <div className="bg-yellow-100 p-4 rounded shadow w-64 h-40">
@@ -14,7 +19,7 @@ export default function Note({ title, content }: NoteProps) {
                 <div className="pb-2">
                     <div className="flex justify-between items-center mb-2">
                         <input className="border border-gray-400 rounded p-1 w-full mr-2 bg-yellow-100" defaultValue={title}></input>
-                        <button onClick={() => setIsEditing(false)}>Done</button>
+                        <button onClick={() => saveChanges()}>Done</button>
                     </div>
                     <textarea className="border border-gray-400 rounded p-1 w-full h-20 bg-yellow-100" defaultValue={content}></textarea>
                 </div>

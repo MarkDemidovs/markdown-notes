@@ -40,7 +40,7 @@ export default function NotesPage() {
         <h1 className="text-3xl font-bold mb-6">Notes</h1>
         <button onClick={() => createNoteFunction("Click to edit me!", "This is a new note.")} className="rounded shadow border border-gray-300 p-2 w-8 h-8 flex items-center justify-center">+</button>
       </div>
-      <div className="gap-6 flex">
+      <div className="gap-6 flex flex-wrap">
         {notes.map(note => (
           <Note key={note.id} title={note.title} content={note.content} />
         ))}
