@@ -1,2 +1,2 @@
-# markdown-notes
-don't ask, im just trying to learn new technologies
+# Notes
+This website can be used to create notes. 
